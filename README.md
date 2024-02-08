@@ -1,6 +1,6 @@
 # Calculator
 A python written calculator with minimal arithmetic operations and formulas.
-This programm is made for systems without a graphical interface and only CLI based.
+This programm is made for systems without a graphical interface. So its only CLI based and runs in a terminal.
 
 Functions
 ----

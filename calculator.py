@@ -5,11 +5,11 @@ print("Calculator MathPower III")
 print("----------------------------")
 
 
-listElemente = []
+elements = []
 file = "calculator.txt"
 
 
-def probe(value):
+def check(value):
     if value.startswith('-') and value[1:].isdigit():
         number = int(value)
         return number
@@ -21,28 +21,28 @@ def probe(value):
 
 
 def addition(number1, number2):
-    plus = number1 + number2
-    print("Result=", plus)
-    listElemente.append(plus)
+    add = number1 + number2
+    print("Result=", add)
+    elements.append(add)
 
 
 def subtraction(number1, number2):
-    minus = number1 - number2
-    print("Result=", minus)
-    listElemente.append(minus)
+    sub = number1 - number2
+    print("Result=", sub)
+    elements.append(sub)
 
 
 def multiplication(number1, number2):
-    mal = number1 * number2
-    print("Result=", mal)
-    listElemente.append(mal)
+    mul = number1 * number2
+    print("Result=", mul)
+    elements.append(mul)
 
 
 def division(number1, number2):
     try:
-        geteilt = number1 / number2
-        print("Result=", geteilt)
-        listElemente.append(geteilt)
+        div = number1 / number2
+        print("Result=", div)
+        elements.append(div)
     except ZeroDivisionError:
         print("Not divisible by zero")
         return None
@@ -57,29 +57,29 @@ def division(number1, number2):
 def firstbinomial(number1, number2):
     binomial1 = ((number1*number1)+(2*number1*number2)+(number2*number2))
     print("Result=", binomial1)
-    listElemente.append(binomial1)
+    elements.append(binomial1)
 
 
 def secondbinomial(number1, number2):
     binomial2 = ((number1 * number1) - (2 * number1 * number2) + (number2 * number2))
     print("Result=", binomial2)
-    listElemente.append(binomial2)
+    elements.append(binomial2)
 
 
 def thirdbinomial(number1, number2):
     binomial3 = ((number1 * number1) - (number2 * number2))
     print("Result=", binomial3)
-    listElemente.append(binomial3)
+    elements.append(binomial3)
 
 
 def pqformula(number1, number2):
     try:
-        pqplus = (number1 * (-1) / 2) + math.sqrt(((number1 / 2) * (number1 / 2)) - number2)
-        pqminus = (number1 * (-1) / 2) - math.sqrt(((number1 / 2) * (number1 / 2)) - number2)
-        print("Result(+)=", pqplus)
-        print("Result(-)=", pqminus)
-        listElemente.append(pqplus)
-        listElemente.append(pqminus)
+        pqpos = (number1 * (-1) / 2) + math.sqrt(((number1 / 2) * (number1 / 2)) - number2)
+        pqneg = (number1 * (-1) / 2) - math.sqrt(((number1 / 2) * (number1 / 2)) - number2)
+        print("Result(+)=", pqpos)
+        print("Result(-)=", pqneg)
+        elements.append(pqplus)
+        elements.append(pqminus)
     except ZeroDivisionError:
         print("Not divisible by zero")
         return None
@@ -93,12 +93,12 @@ def pqformula(number1, number2):
 
 def abcformula(number1, number2, number3):
     try:
-        abcplus = (((number2 * (-1)) + math.sqrt(number2 * number2 - 4 * number1 * number3)) / 2 * number1)
-        abcminus = (((number2 * (-1)) - math.sqrt(number2 * number2 - 4 * number1 * number3)) / 2 * number1)
-        print("Result(+)=", abcplus)
-        print("Result(-)=", abcminus)
-        listElemente.append(abcplus)
-        listElemente.append(abcminus)
+        abcpos = (((number2 * (-1)) + math.sqrt(number2 * number2 - 4 * number1 * number3)) / 2 * number1)
+        abcneg = (((number2 * (-1)) - math.sqrt(number2 * number2 - 4 * number1 * number3)) / 2 * number1)
+        print("Result(+)=", abcpos)
+        print("Result(-)=", abcneg)
+        elements.append(abcpos)
+        elements.append(abcneg)
     except ZeroDivisionError:
         print("Not divisible by zero")
         return None
@@ -117,24 +117,24 @@ def operations():
     print("4. /")
     print("5. Exit")
     choice = input("Menu: ")
-    menuoperations = probe(choice)
+    menuoperations = check(choice)
     if menuoperations > 5 or menuoperations < 1:
         print("Invalid option")
     elif menuoperations in {1, 2, 3, 4, 5}:
         print("\n")
         digit1 = input("First number: ")
         digit2 = input("Second number: ")
-        zahl1 = probe(digit1)
-        zahl2 = probe(digit2)
+        num1 = check(digit1)
+        num2 = check(digit2)
         print("\n")
         if menuoperations == 1:
-            addition(zahl1, zahl2)
+            addition(num1, num2)
         elif menuoperations == 2:
-            subtraction(zahl1, zahl2)
+            subtraction(num1, num2)
         elif menuoperations == 3:
-            multiplication(zahl1, zahl2)
+            multiplication(num1, num2)
         elif menuoperations == 4:
-            division(zahl1, zahl2)
+            division(num1, num2)
         elif menuOperatoren == 5:
             print("Exit")
 
@@ -144,7 +144,7 @@ def formulas():
     print("2. Square formulas")
     print("3. Exit")
     choice = input("Menu: ")
-    menuformulas = probe(choice)
+    menuformulas = check(choice)
     if menuformulas > 3 or menuformulas < 1:
         print("Invalid option")
     elif menuformulas in {1, 2, 3}:
@@ -155,22 +155,22 @@ def formulas():
             print("3. third binomial formula (a^2-b^2)")
             print("4. Exit")
             choice = input("Menu: ")
-            menubinomials = probe(choice)
+            menubinomials = check(choice)
             if menubinomials > 4 or menubinomials < 1:
                 print("Invalid option")
             elif menubinomials in {1, 2, 3, 4}:
                 print("")
                 digit1 = input("First number: ")
                 digit2 = input("Second number: ")
-                zahl1 = probe(digit1)
-                zahl2 = probe(digit2)
+                num1 = check(digit1)
+                num2 = check(digit2)
                 print("\n")
                 if menubinomials == 1:
-                    firstbinomial(zahl1, zahl2)
+                    firstbinomial(num1, num2)
                 elif menubinomials == 2:
-                    secondbinomial(zahl1, zahl2)
+                    secondbinomial(num1, num2)
                 elif menubinomials == 3:
-                    thirdbinomial(zahl1, zahl2)
+                    thirdbinomial(num1, num2)
                 elif menubinomials == 4:
                     print("Exit")
         elif menuformulas == 2:
@@ -179,7 +179,7 @@ def formulas():
             print("2. abc-formula")
             print("3. Exit")
             choice = input("Menu: ")
-            menusquare = probe(choice)
+            menusquare = check(choice)
             print("\n")
             if menusquare > 4 or menusquare < 1:
                 print("Invalid option")
@@ -187,16 +187,16 @@ def formulas():
                 if menusquare == 1:
                     digit1 = input("First number: ")
                     digit2 = input("Second number: ")
-                    p = probe(digit1)
-                    q = probe(digit2)
+                    p = check(digit1)
+                    q = check(digit2)
                     pqformula(p, q)
                 elif menusquare == 2:
                     digit1 = input("First number:")
                     digit2 = input("Second number:")
                     digit3 = input("Third number:")
-                    a = probe(digit1)
-                    b = probe(digit2)
-                    c = probe(digit3)
+                    a = check(digit1)
+                    b = check(digit2)
+                    c = check(digit3)
                     abcformula(a, b, c)
                 elif menusquare == 3:
                     print("Exit")
@@ -208,7 +208,7 @@ def miscellaneous():
     print("1. Save results in textfile")
     print("2. Read results from textfile")
     choice = input("Menu: ")
-    menumiscellaneous = probe(choice)
+    menumiscellaneous = check(choice)
     if menumiscellaneous > 2 or menumiscellaneous < 1:
         print("Invalid option")
     elif menumiscellaneous in {1, 2}:
@@ -253,7 +253,7 @@ while True:
     print("3. Miscellaneous")
     print("4. Exit")
     choice = input("Menu: ")
-    menu = probe(choice)
+    menu = check(choice)
     if menu > 4 or menu < 1:
         print("Invalid option")
     elif menu in {1, 2, 3, 4}:

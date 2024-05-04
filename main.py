@@ -38,7 +38,7 @@ if __name__ == '__main__':
                     case _:
                         print("Invalid input please try again")
             elif menu == 3:
-                crypto.crypto()
+                crypto.main()
             elif menu == 4:
                 file_handler.save_file()
             elif menu == 5:

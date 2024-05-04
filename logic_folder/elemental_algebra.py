@@ -70,10 +70,8 @@ def binomial():
         choice = input("Menu: ")
         if choice == "4" or choice not in {"1", "2", "3"}:
             break
-        digit1 = input("First number: ")
-        digit2 = input("Second number: ")
-        num1 = dependencies.check(digit1)
-        num2 = dependencies.check(digit2)
+        num1 = dependencies.check(input("Input your a: "))
+        num2 = dependencies.check(input("Input your b: "))
         match choice:
             case "1":
                 firstbinomial(num1, num2)
@@ -96,18 +94,13 @@ def squareform():
             break
         match choice:
             case "1":
-                digit1 = input("First number: ")
-                digit2 = input("Second number: ")
-                p = dependencies.check(digit1)
-                q = dependencies.check(digit2)
+                p = dependencies.check(input("Input your p: "))
+                q = dependencies.check(input("Input your q: "))
                 pqformula(p, q)
             case "2":
-                digit1 = input("First number:")
-                digit2 = input("Second number:")
-                digit3 = input("Third number:")
-                a = dependencies.check(digit1)
-                b = dependencies.check(digit2)
-                c = dependencies.check(digit3)
+                a = dependencies.check(input("Input your a:"))
+                b = dependencies.check(input("Input your b:"))
+                c = dependencies.check(input("Input your c:"))
                 abcformula(a, b, c)
             case _:
                 print("Invalid input please try again")

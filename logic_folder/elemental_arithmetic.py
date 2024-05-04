@@ -46,10 +46,8 @@ def main():
         choice = input("Menu: ")
         if choice == "5" or choice not in {"1", "2", "3", "4"}:
             break
-        digit1 = input("First number: ")
-        digit2 = input("Second number: ")
-        num1 = dependencies.check(digit1)
-        num2 = dependencies.check(digit2)
+        num1 = dependencies.check(input("First number: "))
+        num2 = dependencies.check(input("Second number: "))
         match choice:
             case "1":
                 addition(num1, num2)

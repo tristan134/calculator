@@ -36,10 +36,8 @@ def modular_exponentiation(base, exponent, modulus):
 
     print(f"The result of {base}^{expo} mod {modulus} is: {result}")
 
-modular_exponentiation(2, 444, 34)
 
-
-def crypto():
+def main():
     cancel = False
     while not cancel:
         print("\n1. Montgomery Ladder")

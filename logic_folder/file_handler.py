@@ -37,7 +37,7 @@ def save_file():
         print("2. Read results from textfile")
         print("3. Exit")
         choice = input("Menu: ")
-        if choice == "3":
+        if choice == "3" or choice not in {"1", "2"}:
             break
         match choice:
             case "1":

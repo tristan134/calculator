@@ -35,7 +35,7 @@ def division(number1, number2):
         return None
 
 
-def operations():
+def main():
     cancel = False
     while not cancel:
         print("\n1. +")

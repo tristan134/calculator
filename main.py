@@ -1,7 +1,8 @@
 from logic_folder import dependencies
-from logic_folder import operations
-from logic_folder import formulas
+from logic_folder import elemental_arithmetic
+from logic_folder import elemental_algebra
 from logic_folder import file_handler
+from logic_folder import crypto
 
 
 print("\n----------------------------")
@@ -10,17 +11,18 @@ print("----------------------------")
 
 if __name__ == '__main__':
     while True:
-        print("\n1. Basic arithmetic operations")
-        print("2. Formulas")
-        print("3. Read or write a file")
-        print("4. Exit")
+        print("\n1. Elemental arithmetic")
+        print("2. Elemental algebra")
+        print("3. Cryptographic algorithms")
+        print("4. File access")
+        print("5. Exit")
         choice = input("Menu: ")
         menu = dependencies.check(choice)
-        if menu > 4 or menu < 1:
+        if menu > 6 or menu < 1:
             print("Invalid option")
-        elif menu in {1, 2, 3, 4}:
+        elif menu in {1, 2, 3, 4, 5, 6}:
             if menu == 1:
-                operations.operations()
+                elemental_arithmetic.main()
             elif menu == 2:
                 print("\n1. Binomial formulas")
                 print("2. Square formulas")
@@ -28,16 +30,20 @@ if __name__ == '__main__':
                 choice = input("Menu: ")
                 match choice:
                     case "1":
-                        formulas.binomial()
+                        elemental_algebra.binomial()
                     case "2":
-                        formulas.squareform()
+                        elemental_algebra.squareform()
                     case "3":
-                        print("Exit.")
+                        print("")
                     case _:
                         print("Invalid input please try again")
             elif menu == 3:
-                file_handler.save_file()
+                crypto.crypto()
             elif menu == 4:
+                file_handler.save_file()
+            elif menu == 5:
+                print("Coming soon.")
+            elif menu == 6:
                 break
 
 print("\nBye.")

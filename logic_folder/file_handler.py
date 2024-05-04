@@ -1,5 +1,4 @@
-import dependencies
-
+from logic_folder import dependencies
 file = "../calculator.txt"
 
 
@@ -32,14 +31,18 @@ def read_list():
 
 
 def save_file():
-    print("1. Save results in textfile")
-    print("2. Read results from textfile")
-    choice = input("Menu: ")
-    menumiscellaneous = dependencies.check(choice)
-    if menumiscellaneous > 2 or menumiscellaneous < 1:
-        print("Invalid option")
-    elif menumiscellaneous in {1, 2}:
-        if menumiscellaneous == 1:
-            write_list(dependencies.elements)
-        elif menumiscellaneous == 2:
-            print(read_list())
+    cancel = False
+    while not cancel:
+        print("1. Save results in textfile")
+        print("2. Read results from textfile")
+        print("3. Exit")
+        choice = input("Menu: ")
+        if choice == "3":
+            break
+        match choice:
+            case "1":
+                write_list(dependencies.elements)
+            case "2":
+                print(read_list())
+            case _:
+                print("Invalid input please try again")

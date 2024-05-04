@@ -1,4 +1,4 @@
-import dependencies
+from logic_folder import dependencies
 import math
 
 cancel = False

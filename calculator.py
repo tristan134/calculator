@@ -8,10 +8,9 @@ print("----------------------------")
 
 
 while True:
-    print("")
-    print("1. Basic arithmetic operations")
+    print("\n1. Basic arithmetic operations")
     print("2. Formulas")
-    print("3. Miscellaneous")
+    print("3. Read or write a file")
     print("4. Exit")
     choice = input("Menu: ")
     menu = dependencies.check(choice)
@@ -21,7 +20,19 @@ while True:
         if menu == 1:
             operations.operations()
         elif menu == 2:
-            formulas.formulas()
+            print("\n1. Binomial formulas")
+            print("2. Square formulas")
+            print("3. Exit")
+            choice = input("Menu: ")
+            match choice:
+                case "1":
+                    formulas.binomial()
+                case "2":
+                    formulas.squareform()
+                case "3":
+                    print("Exit.")
+                case _:
+                    print("Invalid input please try again")
         elif menu == 3:
             file_handler.save_file()
         elif menu == 4:

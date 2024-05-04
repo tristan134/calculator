@@ -1,6 +1,6 @@
 import dependencies
 
-file = "calculator.txt"
+file = "../calculator.txt"
 
 
 def write_list(resultlist):

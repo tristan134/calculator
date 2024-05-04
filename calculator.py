@@ -1,9 +1,4 @@
-import formulas
-import dependencies
-import operations
-import file_handler
-
-
+from logic_folder import dependencies, file_handler, formulas, operations
 
 print("\n----------------------------")
 print("Calculator MathPower III")

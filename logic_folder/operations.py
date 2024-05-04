@@ -44,7 +44,7 @@ def operations():
         print("4. /")
         print("5. Exit")
         choice = input("Menu: ")
-        if choice == "5":
+        if choice == "5" or choice not in {"1", "2", "3", "4"}:
             break
         digit1 = input("First number: ")
         digit2 = input("Second number: ")

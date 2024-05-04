@@ -68,7 +68,7 @@ def binomial():
         print("3. third binomial formula (a^2-b^2)")
         print("4. Exit")
         choice = input("Menu: ")
-        if choice == "4":
+        if choice == "4" or choice not in {"1", "2", "3"}:
             break
         digit1 = input("First number: ")
         digit2 = input("Second number: ")
@@ -92,7 +92,7 @@ def squareform():
         print("2. abc-formula")
         print("3. Exit")
         choice = input("Menu: ")
-        if choice == "3":
+        if choice == "3" or choice not in {"1", "2"}:
             break
         match choice:
             case "1":

@@ -1,9 +1,7 @@
-import sys
 from logic_folder import dependencies
 from logic_folder import operations
 from logic_folder import formulas
 from logic_folder import file_handler
-sys.path.insert(0, '/logic_folder')
 
 
 print("\n----------------------------")

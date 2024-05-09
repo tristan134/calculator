@@ -1,5 +1,5 @@
 from logic_folder import dependencies
-
+import math
 
 def montgomery_ladder(base, exponent, modulo):
     base %= modulo
@@ -24,17 +24,62 @@ def montgomery_ladder(base, exponent, modulo):
 
 def modular_exponentiation(base, exponent, modulus):
     result = 1
-    expo = exponent
+    pexponent = exponent
+    pbase = base
     base = base % modulus
 
     while exponent > 0:
         if exponent % 2 == 1:
             result = (result * base) % modulus
-            print(result)
         exponent = exponent >> 1
         base = (base * base) % modulus
 
-    print(f"The result of {base}^{expo} mod {modulus} is: {result}")
+    print(f"The result of {pbase}^{pexponent} mod {modulus} is: {result}")
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    elif num <= 3:
+        return True
+    elif num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i * i <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def prime_with_exponent(number):
+    result = []
+    i = 2
+    while True:
+        if is_prime(i):
+            exponent = 1
+            while i ** exponent <= number:
+                result.append(i)
+                exponent += 1
+        if i > number:
+            break
+        i += 1
+    return result
+
+
+def p_minus_1_method(m, k):
+    result = 1
+    for i in prime_with_exponent(k):
+        result *= i
+    p = (2 ** result - 1) % m
+    liste = [m, p]
+    liste.sort()
+    print(liste)
+    while liste[1] % liste[0] != 0:
+        division = math.floor(liste[1] / liste[0])
+        rest = liste[1] - division * liste[0]
+        print(f"{liste[1]} / {liste[0]} = {division} * {liste[0]} + {rest}")
+        liste[1] = liste[0]
+        liste[0] = rest
+    print(f"ggT: {liste[0]}")
 
 
 def main():
@@ -42,7 +87,7 @@ def main():
     while not cancel:
         print("\n1. Montgomery Ladder")
         print("2. Modular Exponentiation")
-        print("3. ---")
+        print("3. P-1 Method")
         print("4. ---")
         print("5. Exit")
         choice = input("Menu: ")
@@ -61,7 +106,9 @@ def main():
                 num3 = dependencies.check(input("Modulo: "))
                 modular_exponentiation(num1, num2, num3)
             case "3":
-                print("Will be implemented")
+                num1 = dependencies.check(input("Input m: "))
+                num2 = dependencies.check(input("Input B: "))
+                p_minus_1_method(num1, num2)
             case "4":
                 print("Will be implemented")
             case _:

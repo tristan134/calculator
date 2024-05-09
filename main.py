@@ -3,6 +3,7 @@ from logic_folder import elemental_arithmetic
 from logic_folder import elemental_algebra
 from logic_folder import file_handler
 from logic_folder import crypto
+from logic_folder import arithmetic
 
 
 print("\n----------------------------")
@@ -14,8 +15,9 @@ if __name__ == '__main__':
         print("\n1. Elemental arithmetic")
         print("2. Elemental algebra")
         print("3. Cryptographic algorithms")
-        print("4. File access")
-        print("5. Exit")
+        print("4. Arithmetic")
+        print("5. File access")
+        print("6. Exit")
         choice = input("Menu: ")
         menu = dependencies.check(choice)
         if menu > 6 or menu < 1:
@@ -40,9 +42,9 @@ if __name__ == '__main__':
             elif menu == 3:
                 crypto.main()
             elif menu == 4:
-                file_handler.save_file()
+                arithmetic.main()
             elif menu == 5:
-                print("Coming soon.")
+                file_handler.save_file()
             elif menu == 6:
                 break
 

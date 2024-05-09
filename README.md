@@ -1,5 +1,5 @@
 # Calculator
-A python written calculator with minimal arithmetic operations, basic algebra and cryptographic algorithms.
+A python written calculator with some arithmetic operations, algebra, cryptographic algorithms and theoretical computer science.
 This programm is made for systems without a graphical interface. So its only CLI based and runs in a terminal.
 
 Functions

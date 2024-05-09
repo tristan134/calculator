@@ -47,7 +47,6 @@ def main():
         choice = input("Menu: ")
         if choice == "5" or choice not in {"1", "2", "3", "4"}:
             break
-
         match choice:
             case "1":
                 selection_sort(input_list())

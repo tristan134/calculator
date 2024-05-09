@@ -21,9 +21,9 @@ if __name__ == '__main__':
         print("7. Exit")
         choice = input("Menu: ")
         menu = dependencies.check(choice)
-        if menu > 6 or menu < 1:
+        if menu > 7 or menu < 1:
             print("Invalid option")
-        elif menu in {1, 2, 3, 4, 5, 6}:
+        elif menu in {1, 2, 3, 4, 5, 6, 7}:
             if menu == 1:
                 elemental_arithmetic.main()
             elif menu == 2:

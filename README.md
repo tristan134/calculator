@@ -8,10 +8,16 @@ The calculator can handle
 
  - Arithmetic 
    - basic arithmetic operations
+   - greatest common divisor
  - Algebra
    - the three binomial formulas
    - two squared formulas (pq and abc)
  - Cryptographic algorithms
    - montgomery ladder
+   - modular exponentiation
+   - p-1-method
+ - Theoretical computer science
+   - selection sort
+   - insertion sort
  - it is also possible to save the results in a .txt-file and read them from the file
 

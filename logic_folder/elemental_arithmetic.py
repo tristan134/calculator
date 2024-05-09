@@ -46,7 +46,7 @@ def main():
         choice = input("Menu: ")
         if choice == "5" or choice not in {"1", "2", "3", "4"}:
             break
-        num1 = dependencies.check(input("First number: "))
+        num1 = dependencies.check(input("\nFirst number: "))
         num2 = dependencies.check(input("Second number: "))
         match choice:
             case "1":

@@ -31,7 +31,7 @@ def main():
 
         match choice:
             case "1":
-                num1 = dependencies.check(input("Number 1: "))
+                num1 = dependencies.check(input("\nNumber 1: "))
                 num2 = dependencies.check(input("Number 2: "))
                 gcd(num1, num2)
             case "2":

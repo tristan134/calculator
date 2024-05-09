@@ -96,17 +96,17 @@ def main():
 
         match choice:
             case "1":
-                num1 = dependencies.check(input("Base: "))
+                num1 = dependencies.check(input("\nBase: "))
                 num2 = dependencies.check(input("Exponent: "))
                 num3 = dependencies.check(input("Modulo: "))
                 montgomery_ladder(num1, num2, num3)
             case "2":
-                num1 = dependencies.check(input("Base: "))
+                num1 = dependencies.check(input("\nBase: "))
                 num2 = dependencies.check(input("Exponent: "))
                 num3 = dependencies.check(input("Modulo: "))
                 modular_exponentiation(num1, num2, num3)
             case "3":
-                num1 = dependencies.check(input("Input m: "))
+                num1 = dependencies.check(input("\nInput m: "))
                 num2 = dependencies.check(input("Input B: "))
                 p_minus_1_method(num1, num2)
             case "4":

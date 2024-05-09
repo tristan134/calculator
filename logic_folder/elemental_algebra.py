@@ -70,7 +70,7 @@ def binomial():
         choice = input("Menu: ")
         if choice == "4" or choice not in {"1", "2", "3"}:
             break
-        num1 = dependencies.check(input("Input your a: "))
+        num1 = dependencies.check(input("\nInput your a: "))
         num2 = dependencies.check(input("Input your b: "))
         match choice:
             case "1":

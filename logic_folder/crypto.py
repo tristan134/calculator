@@ -1,6 +1,7 @@
 from logic_folder import dependencies
 import math
 
+
 def montgomery_ladder(base, exponent, modulo):
     base %= modulo
     # Binary representation of exponent
@@ -36,6 +37,7 @@ def modular_exponentiation(base, exponent, modulus):
 
     print(f"The result of {pbase}^{pexponent} mod {modulus} is: {result}")
 
+
 def is_prime(num):
     if num <= 1:
         return False
@@ -49,6 +51,7 @@ def is_prime(num):
             return False
         i += 6
     return True
+
 
 def prime_with_exponent(number):
     result = []
@@ -82,6 +85,10 @@ def p_minus_1_method(m, k):
     print(f"ggT: {liste[0]}")
 
 
+def diffie_hellman(n, m):
+    pass
+
+
 def main():
     cancel = False
     while not cancel:
@@ -93,7 +100,6 @@ def main():
         choice = input("Menu: ")
         if choice == "5" or choice not in {"1", "2", "3", "4"}:
             break
-
         match choice:
             case "1":
                 num1 = dependencies.check(input("\nBase: "))
@@ -110,8 +116,7 @@ def main():
                 num2 = dependencies.check(input("Input B: "))
                 p_minus_1_method(num1, num2)
             case "4":
-                print("Will be implemented")
+                num1 = dependencies.check(input("\nNumber: "))
+                prime_with_exponent(num1)
             case _:
                 print("Invalid input please try again")
-
-

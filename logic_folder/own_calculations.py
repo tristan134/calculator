@@ -23,12 +23,13 @@ def calculate_with_last_result(last, calculation):
 def main():
     global last_result
     global result_array
+    last_result = 0
     result_array = []
     cancel = False
     while not cancel:
         print("\n1. Input your own calculation")
-        print("2. Do an other calculation with the last result (you can start your equation with an operator)")
-        print("3. Print your last result")
+        print("2. Calculate with your last result (start your equation with an operator)")
+        print("3. Print the last result")
         print("4. Choose one of the last 10 results, with you want to calculate again")
         print("5. Exit")
         choice = input("Menu: ")

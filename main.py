@@ -23,9 +23,9 @@ if __name__ == '__main__':
         print("8. Exit")
         choice = input("Menu: ")
         menu = dependencies.check(choice)
-        if menu > 7 or menu < 1:
+        if menu > 8 or menu < 1:
             print("Invalid option")
-        elif menu in {1, 2, 3, 4, 5, 6, 7}:
+        elif menu in {1, 2, 3, 4, 5, 6, 7, 8}:
             if menu == 1:
                 own_calculations.main()
             elif menu == 2:

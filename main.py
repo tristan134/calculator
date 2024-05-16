@@ -12,7 +12,6 @@ print("Calculator MathPower III")
 print("----------------------------")
 
 if __name__ == '__main__':
-    own_calculations.main()
     while True:
         print("\n1. Own calculations")
         print("2. Elemental arithmetic")

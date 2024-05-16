@@ -76,8 +76,12 @@ def main():
                     if menu >= len(results):
                         print("Index is out of range")
                     else:
-                        print(f"{results[menu]} is now your last result. Choose menu number 2. to calculate again. "
-                              f"Otherwise it will be overwritten.")
+                        print(f"{results[menu]} is now your last result.\n")
                         last_result = results[menu]
+                        calculation = input("Your equation has to start with an operator: ")
+                        print(f"The result of {last_result}{calculation} is: "
+                              f"{calculate_with_last_result(last_result, calculation)}")
+                        last_result = calculate_with_last_result(last_result, calculation)
+                        result_array(calculate_with_last_result(last_result, calculation))
             case _:
                 print("Invalid input please try again")

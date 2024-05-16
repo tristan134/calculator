@@ -50,7 +50,7 @@ def main():
         match choice:
             case "1":
                 while True:
-                    calculation = input("Input calculation (q for quit): ")
+                    calculation = input("Input calculation (q to quit): ")
                     if calculation == "q":
                         break
                     else:

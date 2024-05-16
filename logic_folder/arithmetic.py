@@ -18,8 +18,7 @@ def gcd(m, n):
 
 
 def main():
-    cancel = False
-    while not cancel:
+    while True:
         print("\n1. Greatest common divisor")
         print("2. ---")
         print("3. ---")

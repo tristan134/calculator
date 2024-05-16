@@ -90,8 +90,7 @@ def diffie_hellman(n, m):
 
 
 def main():
-    cancel = False
-    while not cancel:
+    while True:
         print("\n1. Montgomery Ladder")
         print("2. Modular Exponentiation")
         print("3. P-1 Method")

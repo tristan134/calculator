@@ -36,8 +36,7 @@ def division(number1, number2):
 
 
 def main():
-    cancel = False
-    while not cancel:
+    while True:
         print("\n1. +")
         print("2. -")
         print("3. *")

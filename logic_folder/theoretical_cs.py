@@ -37,8 +37,7 @@ def insertion_sort(unsorted_list):
 
 
 def main():
-    cancel = False
-    while not cancel:
+    while True:
         print("\n1. Selection sort")
         print("2. Insertion sort")
         print("3. ---")

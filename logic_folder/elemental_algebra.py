@@ -61,8 +61,7 @@ def abcformula(number1, number2, number3):
 
 
 def binomial():
-    global cancel
-    while not cancel:
+    while True:
         print("\n1. first binomial formula (a^2+2ab+b^2)")
         print("2. second binomial formula (a^2-2ab+b^2)")
         print("3. third binomial formula (a^2-b^2)")

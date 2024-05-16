@@ -37,8 +37,7 @@ def result_array(result, array=None):
 def main():
     global results
     global last_result
-    cancel = False
-    while not cancel:
+    while True:
         print("\n1. Do your own calculation")
         print("2. Calculate with your last result")
         print("3. Print the last result")

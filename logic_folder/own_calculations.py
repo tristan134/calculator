@@ -23,13 +23,15 @@ def calculate_with_last_result(last, calculation):
     return temp
 
 
-def result_array(result, array="results"):
+def result_array(result, array=None):
+    if array is None:
+        array = results
     if len(array) <= 9:
-        results.append(result)
+        array.append(result)
     else:
-        results.pop(0)
-        results.append(result)
-    return results
+        array.pop(0)
+        array.append(result)
+    return array
 
 
 def main():
@@ -43,6 +45,7 @@ def main():
         print("4. Choose one of the last 10 results, with you want to calculate again")
         print("5. Exit")
         choice = input("Menu: ")
+        print("")
         if choice == "5" or choice not in {"1", "2", "3", "4"}:
             break
         match choice:
@@ -72,7 +75,7 @@ def main():
                     menu = dependencies.check(choice)
                     menu -= 1
                     if menu >= len(results):
-                        print("\nIndex is out of range")
+                        print("Index is out of range")
                     else:
                         print(f"{results[menu]} is now your last result. Choose menu number 2. to calculate again. "
                               f"Otherwise it will be overwritten.")

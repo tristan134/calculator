@@ -78,7 +78,7 @@ def main():
                     else:
                         print(f"{results[menu]} is now your last result.\n")
                         last_result = results[menu]
-                        calculation = input("Your equation has to start with an operator: ")
+                        calculation = input("Your equation should start with an operator: ")
                         print(f"The result of {last_result}{calculation} is: "
                               f"{calculate_with_last_result(last_result, calculation)}")
                         last_result = calculate_with_last_result(last_result, calculation)

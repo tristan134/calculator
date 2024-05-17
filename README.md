@@ -19,5 +19,11 @@ The calculator can handle
  - Theoretical computer science
    - selection sort
    - insertion sort
+ - Do yourn own calculations
+   - Use it as a normal calculator 
  - it is also possible to save the results in a .txt-file and read them from the file
 
+
+Requirements
+---
+You need to install python 3.10 or higher. Due to the match/case function which is only available from v3.10

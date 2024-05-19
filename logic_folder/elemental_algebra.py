@@ -78,8 +78,9 @@ def binomial():
                 secondbinomial(num1, num2)
             case "3":
                 thirdbinomial(num1, num2)
-            case "4":
-                cancel = True
+            case _:
+                print("Invalid input please try again")
+
 
 
 def squareform():

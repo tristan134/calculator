@@ -92,6 +92,7 @@ def p_minus_1_method(m, k):
 
 
 def order_additive_group(n, element):
+    """Returns the order of an element in an additive group."""
     ordnung = 1
     result = element % n
     while result != 0:
@@ -101,6 +102,7 @@ def order_additive_group(n, element):
 
 
 def order_multiplicative_group(n, element):
+    """Returns the order of an element in a multiplicative group."""
     if element == 0:
         return float('inf')
     ordnung = 1
@@ -114,6 +116,7 @@ def order_multiplicative_group(n, element):
 
 
 def diffie_hellman(p, g, a, b):
+    """Generates a private key for Alice and Bob each and their public key"""
     if a < p and b < p:
         order = order_multiplicative_group(p, g)
         if is_prime(order):

@@ -2,6 +2,7 @@ from logic_folder import dependencies
 
 
 def input_list():
+    """Generates a list of elements"""
     sortedlist = []
     amount = input("Insert the amount of numbers?: ")
     length = dependencies.check(amount)
@@ -14,6 +15,7 @@ def input_list():
 
 
 def selection_sort(unsorted_list):
+    """Sorting an unsorted list with the selection sort algorithm."""
     s = []
     u = unsorted_list
     for i in range(0, len(unsorted_list)):
@@ -25,6 +27,7 @@ def selection_sort(unsorted_list):
 
 
 def insertion_sort(unsorted_list):
+    """Sorting an unsorted list with the insertion sort algorithm."""
     s = []
     u = unsorted_list
     s.append(unsorted_list[0])

@@ -3,6 +3,7 @@ import math
 
 
 def gcd(m, n):
+    """Calculate the greatest common divisor."""
     liste = [m, n]
     liste.sort()
     print(liste)

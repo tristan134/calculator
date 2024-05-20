@@ -120,9 +120,9 @@ def diffie_hellman(p, g, a, b):
     if a < p and b < p:
         order = order_multiplicative_group(p, g)
         if is_prime(order):
-            print(f"The order of {p} and {g} is prime ({order}), that's good!")
+            print(f"The order of {g} in {p} is prime ({order}), that's good!")
         else:
-            print(f"The order of {p} and {g} is not prime ({order}), but it should be for security reasons!")
+            print(f"The order of {g} in {p} is not prime ({order}), but it should be for security reasons!")
         alpha = (g**a) % p
         beta = (g**b) % p
         beta_alpha = (g**(b*a)) % p

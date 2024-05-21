@@ -16,30 +16,46 @@ def gcd(m, n):
     print(f"ggT: {liste[0]}")
 
 
+def get_parameters(parameter_names):
+    parameters = []
+    for name in parameter_names:
+        while True:
+            try:
+                value = input(f"{name}")
+                value = dependencies.check(value)
+                parameters.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a numerical value.")
+    return parameters
 
 
 def main():
+    menu_options = {
+        "1": (gcd, ["Input m: ", "Input n:"]),
+        # "2": (function_placeholder, ["x", "y"]),
+        # "3": (function_placeholder, ["x", "y"]),
+        # "4": (function_placeholder, ["x", "y"]),
+    }
+
     while True:
         print("\n1. Greatest common divisor")
-        print("2. ---")
-        print("3. ---")
-        print("4. ---")
+        print("2. will be implemented...")
+        print("3. will be implemented...")
+        print("4. will be implemented...")
         print("5. Exit")
+
         choice = input("Menu: ")
-        if choice == "5" or choice not in {"1", "2", "3", "4"}:
+        print("")
+
+        action, param_names = menu_options.get(choice, (None, []))
+
+        if choice == "5":
             break
+        if action:
+            params = get_parameters(param_names)
+            action(*params)
+        else:
+            print("Invalid choice. Please select a valid option.")
 
-        match choice:
-            case "1":
-                num1 = dependencies.check(input("\nNumber 1: "))
-                num2 = dependencies.check(input("Number 2: "))
-                gcd(num1, num2)
-            case "2":
-                print("Will be implemented")
-            case "3":
-                print("Will be implemented")
-            case "4":
-                print("Will be implemented")
-            case _:
-                print("Invalid input please try again")
-
+main()

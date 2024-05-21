@@ -33,7 +33,8 @@ if __name__ == '__main__':
             elif menu == 3:
                 arithmetic.main()
             elif menu == 4:
-                print("\n1. Binomial formulas")
+                elemental_algebra.main()
+                """print("\n1. Binomial formulas")
                 print("2. Square formulas")
                 print("3. Exit")
                 choice = input("Menu: ")
@@ -45,7 +46,7 @@ if __name__ == '__main__':
                     case "3":
                         print("")
                     case _:
-                        print("Invalid input please try again")
+                        print("Invalid input please try again")"""
             elif menu == 5:
                 crypto.main()
             elif menu == 6:

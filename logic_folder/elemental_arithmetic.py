@@ -3,26 +3,26 @@ from logic_folder import dependencies
 
 def addition(number1, number2):
     add = number1 + number2
-    print("Result=", add)
+    print("Result =", add)
     dependencies.elements.append(add)
 
 
 def subtraction(number1, number2):
     sub = number1 - number2
-    print("Result=", sub)
+    print("Result =", sub)
     dependencies.elements.append(sub)
 
 
 def multiplication(number1, number2):
     mul = number1 * number2
-    print("Result=", mul)
+    print("Result =", mul)
     dependencies.elements.append(mul)
 
 
 def division(number1, number2):
     try:
         div = number1 / number2
-        print("Result=", div)
+        print("Result =", div)
         dependencies.elements.append(div)
     except ZeroDivisionError:
         print("Not divisible by zero")
@@ -35,26 +35,43 @@ def division(number1, number2):
         return None
 
 
+def get_parameters(parameter_names):
+    parameters = []
+    for name in parameter_names:
+        while True:
+            try:
+                value = input(f"{name}")
+                value = dependencies.check(value)
+                parameters.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a numerical value.")
+    return parameters
+
 def main():
+    menu_options = {
+        "1": (addition, ["Input first number: ", "Input second number: "]),
+        "2": (subtraction, ["Input first number: ", "Input second number: "]),
+        "3": (multiplication, ["Input first number: ", "Input second number: "]),
+        "4": (division, ["Input first number: ", "Input second number: "]),
+    }
+
     while True:
         print("\n1. +")
         print("2. -")
         print("3. *")
         print("4. /")
         print("5. Exit")
+
         choice = input("Menu: ")
-        if choice == "5" or choice not in {"1", "2", "3", "4"}:
+        print("")
+
+        action, param_names = menu_options.get(choice, (None, []))
+
+        if choice == "5":
             break
-        num1 = dependencies.check(input("\nFirst number: "))
-        num2 = dependencies.check(input("Second number: "))
-        match choice:
-            case "1":
-                addition(num1, num2)
-            case "2":
-                subtraction(num1, num2)
-            case "3":
-                multiplication(num1, num2)
-            case "4":
-                division(num1, num2)
-            case _:
-                print("Invalid input please try again")
+        if action:
+                params = get_parameters(param_names)
+                action(*params)
+        else:
+            print("Invalid choice. Please select a valid option.")

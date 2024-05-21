@@ -60,3 +60,50 @@ def main():
                 print("Will be implemented")
             case _:
                 print("Invalid input please try again")
+
+def get_parameters(parameter_names):
+    parameters = []
+    for name in parameter_names:
+        while True:
+            try:
+                value = input(f"{name}")
+                value = dependencies.check(value)
+                parameters.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a numerical value.")
+    return parameters
+
+
+def main():
+    menu_options = {
+        "1": (montgomery_ladder, ["Base: ", "Exponent: ", "Modulo: "]),
+        "2": (modular_exponentiation, ["Base: ", "Exponent: ", "Modulo: "]),
+        "3": (p_minus_1_method, ["Input m: ", "Input k: "]),
+        "4": (diffie_hellman, ["Group: ", "Element: ", "Random number(a) for Alice (<p): ", "Random number(b) for Bob (<p): "]),
+        "5": (order_additive_group, ["Group: ", "Element: "]),
+        "6": (order_multiplicative_group, ["Group: ", "Element: "]),
+
+    }
+
+    while True:
+        print("\n1. Montgomery Ladder")
+        print("2. Modular Exponentiation")
+        print("3. P-1 Method")
+        print("4. Diffie-Hellman Method")
+        print("5. Determine the order of an element in a additive group")
+        print("6. Determine the order of an element in an multiplicative group")
+        print("7. Exit")
+
+        choice = input("Menu: ")
+        print("")
+
+        action, param_names = menu_options.get(choice, (None, []))
+
+        if choice == "7":
+            break
+        if action:
+            params = get_parameters(param_names)
+            action(*params)
+        else:
+            print("Invalid choice. Please select a valid option.")

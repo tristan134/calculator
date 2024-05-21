@@ -1,8 +1,6 @@
 from logic_folder import dependencies
 import math
 
-cancel = False
-
 
 def firstbinomial(number1, number2):
     binomial1 = ((number1 * number1) + (2 * number1 * number2) + (number2 * number2))
@@ -60,47 +58,47 @@ def abcformula(number1, number2, number3):
         return None
 
 
-def binomial():
+def get_parameters(parameter_names):
+    parameters = []
+    for name in parameter_names:
+        while True:
+            try:
+                value = input(f"{name}")
+                value = dependencies.check(value)
+                parameters.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a numerical value.")
+    return parameters
+
+
+def main():
+    menu_options = {
+        "1": (firstbinomial, ["Input a: ", "Input b: "]),
+        "2": (secondbinomial, ["Input a: ", "Input b: "]),
+        "3": (thirdbinomial, ["Input a: ", "Input b: "]),
+        "4": (pqformula, ["Input p: ", "Input q: "]),
+        "5": (abcformula, ["Input a: ", "Input b: ", "Input c: "]),
+
+    }
+
     while True:
         print("\n1. first binomial formula (a^2+2ab+b^2)")
         print("2. second binomial formula (a^2-2ab+b^2)")
         print("3. third binomial formula (a^2-b^2)")
-        print("4. Exit")
+        print("4. pq-formula")
+        print("5. abc-formula")
+        print("6. Exit")
+
         choice = input("Menu: ")
-        if choice == "4" or choice not in {"1", "2", "3"}:
+        print("")
+
+        action, param_names = menu_options.get(choice, (None, []))
+
+        if choice == "6":
             break
-        num1 = dependencies.check(input("\nInput your a: "))
-        num2 = dependencies.check(input("Input your b: "))
-        match choice:
-            case "1":
-                firstbinomial(num1, num2)
-            case "2":
-                secondbinomial(num1, num2)
-            case "3":
-                thirdbinomial(num1, num2)
-            case _:
-                print("Invalid input please try again")
-
-
-
-def squareform():
-    global cancel
-    while not cancel:
-        print("\n1. pq-formula")
-        print("2. abc-formula")
-        print("3. Exit")
-        choice = input("Menu: ")
-        if choice == "3" or choice not in {"1", "2"}:
-            break
-        match choice:
-            case "1":
-                p = dependencies.check(input("Input your p: "))
-                q = dependencies.check(input("Input your q: "))
-                pqformula(p, q)
-            case "2":
-                a = dependencies.check(input("Input your a:"))
-                b = dependencies.check(input("Input your b:"))
-                c = dependencies.check(input("Input your c:"))
-                abcformula(a, b, c)
-            case _:
-                print("Invalid input please try again")
+        if action:
+            params = get_parameters(param_names)
+            action(*params)
+        else:
+            print("Invalid choice. Please select a valid option.")

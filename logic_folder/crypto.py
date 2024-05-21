@@ -88,31 +88,34 @@ def p_minus_1_method(m, k):
         print(f"{pair[1]} / {pair[0]} = {division} * {pair[0]} + {rest}")
         pair[1] = pair[0]
         pair[0] = rest
+    print(f"The gcd of {m} and {k} is {pair[0]}")
     return pair[0]
 
 
 def order_additive_group(n, element):
     """Returns the order of an element in an additive group."""
-    ordnung = 1
+    order = 1
     result = element % n
     while result != 0:
         result = (result + element) % n
-        ordnung += 1
-    return ordnung
+        order += 1
+    print(f"The order is {order}")
+    return order
 
 
 def order_multiplicative_group(n, element):
     """Returns the order of an element in a multiplicative group."""
     if element == 0:
         return float('inf')
-    ordnung = 1
+    order = 1
     result = element % n
     while result != 1:
         result = (result * element) % n
-        ordnung += 1
-        if ordnung > n:
+        order += 1
+        if order > n:
             return None
-    return ordnung
+    print(f"The order is {order}")
+    return order
 
 
 def diffie_hellman(p, g, a, b):
@@ -137,51 +140,49 @@ def diffie_hellman(p, g, a, b):
         print("Please pick random numbers for a and b < p!")
 
 
+def get_parameters(parameter_names):
+    parameters = []
+    for name in parameter_names:
+        while True:
+            try:
+                value = input(f"{name}")
+                value = dependencies.check(value)
+                parameters.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a numerical value.")
+    return parameters
+
+
 def main():
+    menu_options = {
+        "1": (montgomery_ladder, ["Base: ", "Exponent: ", "Modulo: "]),
+        "2": (modular_exponentiation, ["Base: ", "Exponent: ", "Modulo: "]),
+        "3": (p_minus_1_method, ["Input m: ", "Input k: "]),
+        "4": (diffie_hellman, ["Group: ", "Element: ", "Random number(a) for Alice (<p): ", "Random number(b) for Bob (<p): "]),
+        "5": (order_additive_group, ["Group: ", "Element: "]),
+        "6": (order_multiplicative_group, ["Group: ", "Element: "]),
+
+    }
+
     while True:
         print("\n1. Montgomery Ladder")
         print("2. Modular Exponentiation")
         print("3. P-1 Method")
         print("4. Diffie-Hellman Method")
-        print("5. Determine the order of an element")
-        print("6. Exit")
+        print("5. Determine the order of an element in a additive group")
+        print("6. Determine the order of an element in an multiplicative group")
+        print("7. Exit")
+
         choice = input("Menu: ")
-        if choice == "6" or choice not in {"1", "2", "3", "4", "5"}:
+        print("")
+
+        action, param_names = menu_options.get(choice, (None, []))
+
+        if choice == "7":
             break
-        match choice:
-            case "1":
-                base = dependencies.check(input("\nBase: "))
-                exponent = dependencies.check(input("Exponent: "))
-                modulo = dependencies.check(input("Modulo: "))
-                montgomery_ladder(base, exponent, modulo)
-            case "2":
-                base = dependencies.check(input("\nBase: "))
-                exponent = dependencies.check(input("Exponent: "))
-                modulo = dependencies.check(input("Modulo: "))
-                modular_exponentiation(base, exponent, modulo)
-            case "3":
-                m = dependencies.check(input("\nInput m: "))
-                b = dependencies.check(input("Input B: "))
-                print(f"The gcd of {m} and {b} is {p_minus_1_method(m, b)}")
-            case "4":
-                group = dependencies.check(input("\nGroup: "))
-                element = dependencies.check(input("Element: "))
-                a = dependencies.check(input("Random number for Alice (<p): "))
-                b = dependencies.check(input("Random number for Bob (<p): "))
-                diffie_hellman(group, element, a, b)
-            case "5":
-                print("1. Determine the order of an element in an additive group")
-                print("2. Determine the order of an element in an multiplicative group")
-                choice = input("Menu: ")
-                if choice == "1":
-                    group = dependencies.check(input("Group: "))
-                    element = dependencies.check(input("Element: "))
-                    print(f"The order is {order_additive_group(group, element)}")
-                elif choice == "2":
-                    group = dependencies.check(input("Group: "))
-                    element = dependencies.check(input("Element: "))
-                    print(f"The order is {order_multiplicative_group(group, element)}")
-                else:
-                    print("Invalid input please try again")
-            case _:
-                print("Invalid input please try again")
+        if action:
+            params = get_parameters(param_names)
+            action(*params)
+        else:
+            print("Invalid choice. Please select a valid option.")

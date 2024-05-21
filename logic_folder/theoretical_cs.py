@@ -57,10 +57,10 @@ def main():
     menu_options = {
         "1": selection_sort,
         "2": insertion_sort,
-        # "3": (p_minus_1_method, ["Input m: ", "Input k: "]),
-        # "4": (diffie_hellman, ["Group: ", "Element: ", "Random number(a) for Alice (<p): ", "Random number(b) for Bob (<p): "]),
-        # "5": (order_additive_group, ["Group: ", "Element: "]),
-        # "6": (order_multiplicative_group, ["Group: ", "Element: "]),
+        # "3": will be implemented...,
+        # "4": will be implemented...,
+        # "5": will be implemented...,
+        # "6": will be implemented...,
     }
 
     while True:

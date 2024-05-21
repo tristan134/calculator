@@ -48,6 +48,7 @@ def get_parameters(parameter_names):
                 print("Invalid input. Please enter a numerical value.")
     return parameters
 
+
 def main():
     menu_options = {
         "1": (addition, ["Input first number: ", "Input second number: "]),
@@ -71,7 +72,7 @@ def main():
         if choice == "5":
             break
         if action:
-                params = get_parameters(param_names)
-                action(*params)
+            params = get_parameters(param_names)
+            action(*params)
         else:
             print("Invalid choice. Please select a valid option.")

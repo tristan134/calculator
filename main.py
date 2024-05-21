@@ -34,25 +34,13 @@ if __name__ == '__main__':
                 arithmetic.main()
             elif menu == 4:
                 elemental_algebra.main()
-                """print("\n1. Binomial formulas")
-                print("2. Square formulas")
-                print("3. Exit")
-                choice = input("Menu: ")
-                match choice:
-                    case "1":
-                        elemental_algebra.binomial()
-                    case "2":
-                        elemental_algebra.squareform()
-                    case "3":
-                        print("")
-                    case _:
-                        print("Invalid input please try again")"""
             elif menu == 5:
                 crypto.main()
             elif menu == 6:
                 theoretical_cs.main()
             elif menu == 7:
-                file_handler.save_file()
+                print("Function is not working at the moment.")
+                # file_handler.save_file()
             elif menu == 8:
                 break
 

@@ -39,28 +39,6 @@ def insertion_sort(unsorted_list):
     print("\nThe sorted list is: ", s)
 
 
-"""def main():
-    while True:
-        print("\n1. Selection sort")
-        print("2. Insertion sort")
-        print("3. ---")
-        print("4. ---")
-        print("5. Exit")
-        choice = input("Menu: ")
-        if choice == "5" or choice not in {"1", "2", "3", "4"}:
-            break
-        match choice:
-            case "1":
-                selection_sort(input_list())
-            case "2":
-                insertion_sort(input_list())
-            case "3":
-                print("Will be implemented")
-            case "4":
-                print("Will be implemented")
-            case _:
-                print("Invalid input please try again")"""
-
 def get_parameters(parameter_names):
     parameters = []
     for name in parameter_names:
@@ -77,8 +55,8 @@ def get_parameters(parameter_names):
 
 def main():
     menu_options = {
-        "1": (selection_sort(input_list())),
-        "2": (insertion_sort(input_list()))
+        "1": selection_sort,
+        "2": insertion_sort,
         # "3": (p_minus_1_method, ["Input m: ", "Input k: "]),
         # "4": (diffie_hellman, ["Group: ", "Element: ", "Random number(a) for Alice (<p): ", "Random number(b) for Bob (<p): "]),
         # "5": (order_additive_group, ["Group: ", "Element: "]),
@@ -95,14 +73,18 @@ def main():
         choice = input("Menu: ")
         print("")
 
-        action, param_names = menu_options.get(choice, (None, []))
+        action = menu_options.get(choice)
 
         if choice == "5":
             break
-        if action == "1" or action == "2":
-            action()
-        elif action:
-            params = get_parameters(param_names)
-            action(*params)
+        if action:
+            if choice in {"1", "2"}:
+                unsorted_list = input_list()
+                action(unsorted_list)
+            else:
+                pass
+                # Placeholder for future functions with parameters
+                # params = get_parameters(param_names)
+                # action(*params)
         else:
             print("Invalid choice. Please select a valid option.")

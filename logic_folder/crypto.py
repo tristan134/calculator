@@ -162,7 +162,6 @@ def main():
         "4": (diffie_hellman, ["Group: ", "Element: ", "Random number(a) for Alice (<p): ", "Random number(b) for Bob (<p): "]),
         "5": (order_additive_group, ["Group: ", "Element: "]),
         "6": (order_multiplicative_group, ["Group: ", "Element: "]),
-
     }
 
     while True:

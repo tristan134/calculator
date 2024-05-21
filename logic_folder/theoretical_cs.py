@@ -39,7 +39,7 @@ def insertion_sort(unsorted_list):
     print("\nThe sorted list is: ", s)
 
 
-def main():
+"""def main():
     while True:
         print("\n1. Selection sort")
         print("2. Insertion sort")
@@ -59,7 +59,7 @@ def main():
             case "4":
                 print("Will be implemented")
             case _:
-                print("Invalid input please try again")
+                print("Invalid input please try again")"""
 
 def get_parameters(parameter_names):
     parameters = []
@@ -77,32 +77,31 @@ def get_parameters(parameter_names):
 
 def main():
     menu_options = {
-        "1": (montgomery_ladder, ["Base: ", "Exponent: ", "Modulo: "]),
-        "2": (modular_exponentiation, ["Base: ", "Exponent: ", "Modulo: "]),
-        "3": (p_minus_1_method, ["Input m: ", "Input k: "]),
-        "4": (diffie_hellman, ["Group: ", "Element: ", "Random number(a) for Alice (<p): ", "Random number(b) for Bob (<p): "]),
-        "5": (order_additive_group, ["Group: ", "Element: "]),
-        "6": (order_multiplicative_group, ["Group: ", "Element: "]),
-
+        "1": (selection_sort(input_list())),
+        "2": (insertion_sort(input_list()))
+        # "3": (p_minus_1_method, ["Input m: ", "Input k: "]),
+        # "4": (diffie_hellman, ["Group: ", "Element: ", "Random number(a) for Alice (<p): ", "Random number(b) for Bob (<p): "]),
+        # "5": (order_additive_group, ["Group: ", "Element: "]),
+        # "6": (order_multiplicative_group, ["Group: ", "Element: "]),
     }
 
     while True:
-        print("\n1. Montgomery Ladder")
-        print("2. Modular Exponentiation")
-        print("3. P-1 Method")
-        print("4. Diffie-Hellman Method")
-        print("5. Determine the order of an element in a additive group")
-        print("6. Determine the order of an element in an multiplicative group")
-        print("7. Exit")
+        print("\n1. Selection sort")
+        print("2. Insertion sort")
+        print("3. ---")
+        print("4. ---")
+        print("5. Exit")
 
         choice = input("Menu: ")
         print("")
 
         action, param_names = menu_options.get(choice, (None, []))
 
-        if choice == "7":
+        if choice == "5":
             break
-        if action:
+        if action == "1" or action == "2":
+            action()
+        elif action:
             params = get_parameters(param_names)
             action(*params)
         else:

@@ -57,5 +57,3 @@ def main():
             action(*params)
         else:
             print("Invalid choice. Please select a valid option.")
-
-main()

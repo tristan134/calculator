@@ -7,11 +7,37 @@ from logic_folder import arithmetic
 from logic_folder import theoretical_cs
 from logic_folder import own_calculations
 
-print("\n----------------------------")
-print("Calculator MathPower III")
-print("----------------------------")
+
+
+
+def get_parameters(parameter_names):
+    parameters = []
+    for name in parameter_names:
+        while True:
+            try:
+                value = input(f"{name}")
+                value = dependencies.check(value)
+                parameters.append(value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a numerical value.")
+    return parameters
+
 
 if __name__ == '__main__':
+    print("\n----------------------------")
+    print("Calculator MathPower III")
+    print("----------------------------")
+    menu_options = {
+        "1": (own_calculations.main, []),
+        "2": (elemental_arithmetic.main, []),
+        "3": (arithmetic.main, []),
+        "4": (elemental_algebra.main, []),
+        "5": (crypto.main, []),
+        "6": (theoretical_cs.main, []),
+        # "7": file_handler.save_file, []),
+    }
+
     while True:
         print("\n1. Own calculations")
         print("2. Elemental arithmetic")
@@ -19,29 +45,19 @@ if __name__ == '__main__':
         print("4. Elemental algebra")
         print("5. Cryptographic algorithms")
         print("6. Theoretical computer science")
-        print("7. File access")
+        print("7. File access (Not working right now)")
         print("8. Exit")
+
         choice = input("Menu: ")
-        menu = dependencies.check(choice)
-        if menu > 8 or menu < 1:
-            print("Invalid option")
-        elif menu in {1, 2, 3, 4, 5, 6, 7, 8}:
-            if menu == 1:
-                own_calculations.main()
-            elif menu == 2:
-                elemental_arithmetic.main()
-            elif menu == 3:
-                arithmetic.main()
-            elif menu == 4:
-                elemental_algebra.main()
-            elif menu == 5:
-                crypto.main()
-            elif menu == 6:
-                theoretical_cs.main()
-            elif menu == 7:
-                print("Function is not working at the moment.")
-                # file_handler.save_file()
-            elif menu == 8:
-                break
+        print("")
+
+        action, param_names = menu_options.get(choice, (None, []))
+
+        if choice == "8":
+            break
+        if action:
+            action(*param_names)
+        else:
+            print("Invalid choice. Please select a valid option.")
 
 print("\nBye.")

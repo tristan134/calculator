@@ -39,6 +39,15 @@ def insertion_sort(unsorted_list):
     print("\nThe sorted list is: ", s)
 
 
+def bubble_sort(unsorted_list):
+    """Sorting an unsorted list with the bubble sort algorithm."""
+    n = len(unsorted_list)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if unsorted_list[j] > unsorted_list[j + 1]:
+                unsorted_list[j], unsorted_list[j + 1] = unsorted_list[j + 1], unsorted_list[j]
+    print("\nThe sorted list is: ", unsorted_list)
+
 def get_parameters(parameter_names):
     parameters = []
     for name in parameter_names:
@@ -57,7 +66,7 @@ def main():
     menu_options = {
         "1": selection_sort,
         "2": insertion_sort,
-        # "3": will be implemented...,
+        "3": bubble_sort,
         # "4": will be implemented...,
         # "5": will be implemented...,
         # "6": will be implemented...,
@@ -66,7 +75,7 @@ def main():
     while True:
         print("\n1. Selection sort")
         print("2. Insertion sort")
-        print("3. ---")
+        print("3. Bubble sort")
         print("4. ---")
         print("5. Exit")
 
